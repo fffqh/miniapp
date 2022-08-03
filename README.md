@@ -1,10 +1,11 @@
+[toc]
 # Mini-app 小程序运行时
 - 基于 `WebWork` 的双线程结构，隔离用户逻辑与dom的操作权限
 - 基于 `Proxy` 与 `发布订阅模式` 实现数据驱动的响应式框架
 - 使用 `vdom` 实现 dom 的渲染
 - 提供系统组件 `TodoList`
 
-## demo 效果
+## 1. demo 效果
 
 ![](images/demo.png)
 
@@ -67,8 +68,26 @@ const App = {
 app(App)
 
 ```
+### 1.1 页面效果说明
+- 输入框可以向待办列表添加项目
+- 项目中的×可以删除该项目
+- 底部显示项目总数
+- 底部的按钮可以显示/隐藏项目总数
+### 1.2 系统组件TodoList的使用：
+```html
+<TodoList 
+    title  ={state.title}
+    list   ={state.list} 
+    value  ={state.input} 
+    oninput={inputHandler} >
+</TodoList>
+```
+- title : 待办列表的标题
+- list : 待办事项数组，如 `[{text:'A', color:'red'}, {text:'B'}]`
+- value : input输入框dom.value双向绑定的数据，如 `{value:'初始默认值'}`
+- oninput : 绑定一个特定的回调函数
 
-## 双线程通信
+## 2. 双线程通信
 1. 主线程 : view 线程
    - 生成数据代理
    - 接收 work 线程的 commit 消息
@@ -82,7 +101,7 @@ app(App)
    - 向 view 线程发送 commit 消息
    - 接收 view 线程的 event 消息，执行 event 绑定的用户函数
 
-## 响应式设计
+## 3. 响应式设计
 - 参考资料：[reactive + effect + track + trigger 实现响应式系统](https://cloud.tencent.com/developer/article/2054897)
 1. reactive : 生成 Proxy
    - Proxy 支持对象与数组 
