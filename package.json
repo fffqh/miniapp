@@ -1,0 +1,19 @@
+{
+    "name": "miniapp-demo",
+    "version": "1.0.0",
+    "description": "使用小程序框架的一个示例",
+    "main": "index.js",
+    "scripts": {
+        "dev": "webpack --mode development --watch",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@babel/cli": "^7.0.0",
+        "@babel/core": "^7.7.2",
+        "@babel/plugin-transform-react-jsx": "^7.7.0",
+        "babel-loader": "^8.2.5"
+    }
+}
